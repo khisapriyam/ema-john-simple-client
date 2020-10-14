@@ -1,0 +1,22 @@
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.loginInfo{
+  color: white;
+  position: absolute;
+  left: 1270px;
+  top: 112px;
+  z-index: 1;
+  font-size: 23px;
+  font-weight:300;
+}

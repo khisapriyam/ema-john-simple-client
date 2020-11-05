@@ -30,19 +30,18 @@ const Shop = () => {
         .then(data => setCart(data))
     }, [])
     const handleAddProduct = (product) =>{
-        //console.log("product added" ,product);
         const toBeAddedkey = product.key;
-        const sameProduct = cart.find(pd => pd.key === product.key);
+        const sameProduct = cart.find(pd => pd.key === toBeAddedkey);
         let count = 1;
         let newCart;
         if(sameProduct){
             const count = sameProduct.quantity + 1;
             sameProduct.quantity = count;
-            const others = cart.filter (pd => pd.key !== toBeAddedkey);
+            const others = cart.filter (pd => pd.key !==toBeAddedkey);
             newCart = [...others, sameProduct];
         }
         else{
-            product.quantity= 1;
+            product.quantity = 1;
             newCart = [...cart, product];
         }
         setCart(newCart);

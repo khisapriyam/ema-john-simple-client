@@ -9,12 +9,13 @@ import { Link } from 'react-router-dom';
 const Shop = () => {
     const [products, setProducts] = useState([])
     const [cart, setCart] = useState([]);
+    const [search, setSearch] = useState('');
 
     useEffect(() => {
-        fetch('https://young-coast-34206.herokuapp.com/products')
+        fetch('http://localhost:5000/products?search='+search)
         .then(res => res.json())
         .then(data => setProducts(data))
-    }, [])
+    }, [search])
     
     useEffect(() =>{
         const savedCart = getDatabaseCart();
@@ -29,6 +30,13 @@ const Shop = () => {
         .then(res => res.json())
         .then(data => setCart(data))
     }, [])
+
+    //creating method for searching items
+    const handleSearch = event => {
+        setSearch(event.target.value);
+    }
+
+
     const handleAddProduct = (product) =>{
         const toBeAddedkey = product.key;
         const sameProduct = cart.find(pd => pd.key === toBeAddedkey);
@@ -52,6 +60,7 @@ const Shop = () => {
     return (
         <div className= "twin-container">
             <div className="product-container">
+                <input type="text" onBlur={handleSearch} placeholder="Search product" className="product-search"/>
                 {
                     products.map(pd => <Product
                         key ={pd.key} 

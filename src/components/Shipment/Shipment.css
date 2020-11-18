@@ -12,3 +12,7 @@
 .error{
     color: red;
 }
+#processPayment{
+    padding-top: 10px;
+    padding-left: 50px;
+}

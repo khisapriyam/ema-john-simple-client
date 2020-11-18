@@ -11,3 +11,8 @@
     margin-top: 20px;
     padding-left:20px;
 }
+.product-search{
+    box-shadow: 3px 3px 3px gray;
+    width: 50%;
+    margin-left: 300px;
+}
